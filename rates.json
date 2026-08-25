@@ -1,5 +1,14 @@
 {
-  "base": "USD",
+  "result": "success",
+  "provider": "https://www.exchangerate-api.com",
+  "documentation": "https://www.exchangerate-api.com/docs/free",
+  "terms_of_use": "https://www.exchangerate-api.com/terms",
+  "time_last_update_unix": 1787616151,
+  "time_last_update_utc": "Tue, 25 Aug 2026 00:02:31 +0000",
+  "time_next_update_unix": 1787704461,
+  "time_next_update_utc": "Wed, 26 Aug 2026 00:34:21 +0000",
+  "time_eol_unix": 0,
+  "base_code": "USD",
   "rates": {
     "USD": 1,
     "AED": 3.6725,
@@ -167,6 +176,5 @@
     "ZMW": 18.95296,
     "ZWG": 26.6291,
     "ZWL": 26.6291
-  },
-  "time_last_update_utc": "Tue, 25 Aug 2026 00:02:31 +0000"
+  }
 }
