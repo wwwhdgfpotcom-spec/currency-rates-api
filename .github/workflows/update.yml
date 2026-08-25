@@ -2,12 +2,14 @@ name: Update Currency Rates
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # يتم تنفيذه تلقائياً كل 4 ساعات
-  workflow_dispatch:      # يسمح لك بتشغيله يدوياً متى شئت من لوحة تحكم GitHub
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 jobs:
   update-rates:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -15,11 +17,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
 
       - name: Run Update Script
-        run: |
-          node update.js
+        run: node update.js
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
