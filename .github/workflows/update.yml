@@ -1,0 +1,28 @@
+name: Update Currency Rates
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # يتم تنفيذه تلقائياً كل 4 ساعات
+  workflow_dispatch:      # يسمح لك بتشغيله يدوياً متى شئت من لوحة تحكم GitHub
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Update Script
+        run: |
+          node update.js
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update currency rates and timestamp [skip ci]"
+          file_pattern: "*.json"
